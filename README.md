@@ -25,3 +25,9 @@ nc 127.0.0.1 123 &> /dev/null; echo $?
 ```
 
 Will output 0 if port 123 is open, and 1 if it's closed.
+
+# Get available IP addresses in network
+
+```
+$ nmap -v -sn -n 10.172.196.66/26 -oG - | awk '/Status: Down/{print $2}'
+```
